@@ -1,4 +1,4 @@
-namespace HubSpot.NET.Core
+﻿namespace HubSpot.NET.Core
 {
     using HubSpot.NET.Api.OAuth.Dto;
     using HubSpot.NET.Core.Interfaces;
@@ -111,7 +111,7 @@ namespace HubSpot.NET.Core
         {
             RestRequest request = ConfigureRequestAuthentication(path, method);
            
-            if(entity != default)
+            if(entity.Equals(default))
                 request.AddJsonBody(entity);
             
 
@@ -136,7 +136,7 @@ namespace HubSpot.NET.Core
 
             RestRequest request = ConfigureRequestAuthentication(path, method);
 
-            if (entity != default)
+            if (entity.Equals(default))
                 request.AddJsonBody(entity);
 
             IRestResponse response = _client.Execute(request);
